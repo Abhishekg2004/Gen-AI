@@ -1,0 +1,12 @@
+from transformers import pipeline
+
+analyze = pipeline("sentiment-analysis")
+texts = [
+  "I love using this product! It makes my life so much easier.",
+  "The service was terrible, and I'm very disappointed.",
+  "It's an average experience, nothing special but not bad either."
+]
+
+for t in texts:
+  r = analyze(t)[0]
+  print(f"{t}\n{r['label']} (Score: {r['score']:.2f})\n")
