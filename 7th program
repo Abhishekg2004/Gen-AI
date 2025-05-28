@@ -1,0 +1,5 @@
+from transformers import pipeline
+
+summarize = pipeline("summarization")
+text = """Artificial Intelligence (AI) is transforming industries by automating tasks and enabling new capabilities. In healthcare, it's used for diagnosis, personalized medicine, and drug discovery. In business, it powers customer service, fraud detection, and supply chains. AI also enhances daily life through smart assistants and recommendation systems. It promises future advances in education, transport, and sustainability."""
+print("Summarized Text:\n" + summarize(text, max_length=50, min_length=20, do_sample=False)[0]["summary_text"])
