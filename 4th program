@@ -1,0 +1,22 @@
+word_embeddings = {
+    "ai": ["machine learning", "deep learning", "data science"],
+    "data": ["information", "dataset", "analytics"],
+    "science": ["research", "experiment", "technology"],
+    "learning": ["education", "training", "knowledge"],
+    "robot": ["automation", "machine", "mechanism"]
+}
+
+def find_similar_words(word):
+    return word_embeddings.get(word, [])
+
+def enrich_prompt(prompt):
+    return " ".join(
+        f"{w} ({', '.join(find_similar_words(w))})" if find_similar_words(w) else w
+        for w in prompt.lower().split()
+    )
+
+original = "Explain AI and its applications in science."
+enriched = enrich_prompt(original)
+
+print("Original Prompt:\n" + original)
+print("\nEnriched Prompt:\n" + enriched)
