@@ -1,0 +1,14 @@
+d = {
+ "adventure": ["journey", "exploration", "quest"],
+ "robot": ["machine", "automation", "mechanism"],
+ "forest": ["woods", "jungle", "wilderness"],
+ "ocean": ["sea", "waves", "depths"],
+ "magic": ["spell", "wizardry", "enchantment"]
+}
+
+def para(w):
+    s = d.get(w)
+    return f"Sorry, I couldn't find similar words for '{w}'." if not s else \
+        f"Once upon a time, there was a great {w}. It was full of {', '.join(s[:-1])}, and {s[-1]}. Everyone who experienced this {w} always remembered it as a remarkable tale."
+
+print("Generated Paragraph:\n" + para("adventure"))
